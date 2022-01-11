@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\AlertsController;
 use App\Http\Controllers\TickerController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +20,12 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::post("v1/ticker", [TickerController::class, "index"]);
+
+Route::group([
+    "prefix" => "v1/alerts"
+], function() {
+    Route::post("/", [AlertsController::class, "create"]);
+    Route::delete("/", [AlertsController::class, "delete"]);
+    Route::post("/change-status", [AlertsController::class, "changeStatus"]);
+    Route::get("/", [AlertsController::class, "index"]);
+});

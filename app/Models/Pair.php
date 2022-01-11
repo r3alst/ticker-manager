@@ -19,4 +19,12 @@ class Pair extends Model
         "container_name",
         "container_status"
     ];
+
+    public function fToken() {
+        return $this->belongsTo(Token::class, "f_token", "id");
+    }
+
+    public function tToken() {
+        return $this->belongsTo(Token::class, "t_token", "id");
+    }
 }

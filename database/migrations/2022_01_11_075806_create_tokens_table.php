@@ -22,7 +22,6 @@ class CreateTokensTable extends Migration
             $table->double("rate")->default(0);
             $table->double("balance")->default(0);
             $table->string("network")->default("BSC");
-            $table->timestamps();
         });
     }
 
