@@ -48,7 +48,7 @@ class AlertsController extends Controller
         $data = array_merge([
             "id" => null,
             "status" => 0
-        ], $request->only(["status"]));
+        ], $request->only(["id", "status"]));
         /** @var Alert $alert */
         $alert = Alert::query()->where("id", $data["id"])->first();
         $alert->enabled = !!$data["status"] ? 1 : 0;
