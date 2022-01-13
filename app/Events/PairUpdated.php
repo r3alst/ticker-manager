@@ -23,6 +23,9 @@ class PairUpdated
         $this->pairId = $pairId;
     }
 
+    /**
+     * @return Pair
+     */
     public function getPair() {
         return Pair::query()->find($this->pairId);
     }
