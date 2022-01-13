@@ -21,12 +21,12 @@ class TickerController extends Controller
             DB::transaction(function() use($data) {
                 $pair = Pair::query()->where([
                     "network" => $data["network"],
-                    "pair" => $data["pair"]
+                    "name" => $data["pair"]
                 ])->first();
                 if(!$pair) return; // If Pair don't exist...
                 $pair->price = $data["rate"];
                 if($pair->save()) {
-                    event(new PairUpdated($pair));
+                    event(new PairUpdated($pair->id));
                 }
             });
         }

@@ -9,6 +9,7 @@ use App\Models\Pair;
 use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class PairAlertsListener
 {
@@ -42,16 +43,16 @@ class PairAlertsListener
                 if($alert->op === Alert::OP_EQ && $alert->price == $pair->price) {
                     $this->_updateAlert($alert);
                 }
-                if($alert->op === Alert::OP_GT && $alert->price > $pair->price) {
+                if($alert->op === Alert::OP_GT && $pair->price > $alert->price) {
                     $this->_updateAlert($alert);
                 }
-                if($alert->op === Alert::OP_GTE && $alert->price >= $pair->price) {
+                if($alert->op === Alert::OP_GTE && $pair->price >= $alert->price) {
                     $this->_updateAlert($alert);
                 }
-                if($alert->op === Alert::OP_LT && $alert->price < $pair->price) {
+                if($alert->op === Alert::OP_LT && $pair->price < $alert->price) {
                     $this->_updateAlert($alert);
                 }
-                if($alert->op === Alert::OP_LTE && $alert->price <= $pair->price) {
+                if($alert->op === Alert::OP_LTE && $pair->price <= $alert->price) {
                     $this->_updateAlert($alert);
                 }
             }
@@ -59,8 +60,8 @@ class PairAlertsListener
     }
 
     private function _updateAlert($alert) {
-        event(new NotifyAlert($alert));
-        $alert->notification = 1;
+        event(new NotifyAlert($alert->id));
+        $alert->notified = 1;
         $alert->last_notification = Carbon::now();
         $alert->save();
     }
