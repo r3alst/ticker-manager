@@ -28,5 +28,5 @@ php artisan db:seed
 XDROID_API_KEY=[API_KEY]
 ```
 
-**OPTIONAL:** Please support me by contributing to project or to following BSC/ERC/TRC address.
+**OPTIONAL:** Please support me by contributing to project or to following BSC/ERC/MATIC address.
 `0x200753090BC55A39Ff790150143D28635f0E87bb`
