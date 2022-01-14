@@ -42,6 +42,15 @@ class Bep20PairSeeder extends Seeder
                 "balance" => 0,
                 "precision" => 18,
                 "network" => Pair::BSC_MAINNET
+            ],
+            [
+                "name" => "BOT",
+                "symbol" => "BOT",
+                "contract" => "0xDbCcd9131405DD1fE7320090Af337952B9845DFA",
+                "rate" => 0,
+                "balance" => 0,
+                "precision" => 18,
+                "network" => Pair::BSC_MAINNET
             ]
         ];
         $pairs = [
@@ -57,6 +66,15 @@ class Bep20PairSeeder extends Seeder
             [
                 "name" => "WBNBBUSD",
                 "f_token" => "WBNB",
+                "t_token" => "BUSD",
+                "price" => 0,
+                "network" => Pair::BSC_MAINNET,
+                "container_name" => null,
+                "container_status" => null
+            ],
+            [
+                "name" => "BOTBUSD",
+                "f_token" => "BOT",
                 "t_token" => "BUSD",
                 "price" => 0,
                 "network" => Pair::BSC_MAINNET,
