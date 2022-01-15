@@ -21,7 +21,6 @@ class CreateAlertsTable extends Migration
             $table->dateTime("last_notification")->nullable();
             $table->tinyInteger("notified")->default(0);
             $table->tinyInteger("enabled")->default(0);
-            $table->timestamps();
         });
     }
 
