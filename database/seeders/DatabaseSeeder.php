@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            Bep20PairSeeder::class
+            Bep20PairSeeder::class,
+            ETH20PairSeeder::class
         ]);
     }
 }

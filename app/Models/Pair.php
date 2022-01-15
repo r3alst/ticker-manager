@@ -19,6 +19,7 @@ class Pair extends Model
     public $timestamps = false;
 
     const BSC_MAINNET = "BSC";
+    const ETH_MAINNET = "ETH";
 
     protected $fillable = [
         "name",
